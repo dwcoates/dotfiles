@@ -190,12 +190,7 @@ gaps outer 6
 exec --no-startup-id feh --randomize --bg-fill /home/dodge/.config/i3/night-sky.jpg
 
 # Set up the Compton compositor
-#
-#
-# FIXME: apt install compton
-#
-# exec --no-startup-id compton --config $HOME/.config/compton/compton.conf -b
-exec xcompmgr -c -f -n -D 6 -o 0.0
+exec --no-startup-id compton --config $HOME/.config/compton/compton.conf -b
 
 # Search for programs in the PATH conveniently
 bindsym $mod+Shift+semicolon exec dmenu_run -i -fn "monospace-10" -nb "#000f0f" -nf "$inactive-text-color" -sb "#000000" -sf "$text-color"
