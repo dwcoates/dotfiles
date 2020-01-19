@@ -29,3 +29,14 @@ for c in "${configs[@]}"; do
     echo "Adding '$config_path/$c'..."
     ln -s $(readlink -f $(dirname "$0"))/$c $config_path/$c
 done
+
+read -p "Install dependencies (Y/n)?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    for d in "${dependencies[@]}"; do
+        if [[ ! $(command -v "$d") ]]; then
+            sudo apt install -y "$d"
+        else echo "'$d' already found... Skipping.";
+        fi
+    done
+fi
