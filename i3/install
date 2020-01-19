@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-apt install feh i3blocks ffmpeg scrot dunst xcompmgr shutter slop glances
+apt install xcape ffmpeg scrot feh i3blocks dunst shutter slop glances
 
 # Install kitty terminal emulator
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
