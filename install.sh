@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 config_path="$HOME/.config"
+declare -a dependencies=(xcape feh i3blocks dunst shutter slop glances)
 declare -a configs=(i3 dunst conky compton)
 remove_dirs=()
 
@@ -13,7 +14,7 @@ done
 
 if (( ${#remove_dirs[@]} > 0 )); then
     read -p "Pre-existent directories will be removed. Are you sure (Y/n)? " -n 1 -r
-    echo    # (optional) move to a new line
+    echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         for rd in "${remove_dirs[@]}"; do
             rm -Rf "$config_path/$rd"
@@ -26,5 +27,5 @@ fi
 echo "Adding configuration files to $config_path"
 for c in "${configs[@]}"; do
     echo "Adding '$config_path/$c'..."
-    ln -s $(dirname "$0")/$c $config_path/$c
+    ln -s $(readlink -f $(dirname "$0"))/$c $config_path/$c
 done
