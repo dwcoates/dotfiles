@@ -80,11 +80,11 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-set $wsp1 1:misc
+set $wsp1 steam
 set $wsp2 2:misc
-set $wsp3 system
+set $wsp3 3:misc
 set $wsp4 4:misc
-set $wsp5 5:misc
+set $wsp5 system
 set $wsp6 spotify
 set $wsp7 firefox
 set $wsp8 emacs
@@ -231,10 +231,10 @@ exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="sta
 exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal3" --working-directory $HOME/workspace/ChessCom/ceac';
 exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal4" --working-directory $HOME/workspace/ChessCom/ceac';
 
-exec --no-startup-id i3-msg 'workspace 3 $wsp3; append_layout /home/dodge/.config/i3/workspace-monitor.json'
-exec --no-startup-id i3-msg 'workspace 3 $wsp3; exec /home/dodge/bin/kitty --name="startup-monitor1" s-tui';
+exec --no-startup-id i3-msg 'workspace 3 $wsp5; append_layout /home/dodge/.config/i3/workspace-monitor.json'
+exec --no-startup-id i3-msg 'workspace 3 $wsp5; exec /home/dodge/bin/kitty --name="startup-monitor1" s-tui';
 # https://glances.readthedocs.io/en/stable/aoa/gpu.html
-exec --no-startup-id i3-msg 'workspace 3 $wsp3; exec /home/dodge/bin/kitty --name="startup-monitor2" glances';
+exec --no-startup-id i3-msg 'workspace 3 $wsp5; exec /home/dodge/bin/kitty --name="startup-monitor2" glances';
 
 
 # Startup Spotify in the correct place.
@@ -246,6 +246,12 @@ for_window [class="Spotify"] move to workspace "6:$wsp6", workspace --no-auto-ba
 exec i3-msg 'workspace 10:$wsp10; exec /usr/bin/slack'
 # exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Slack"] move to workspace "10:$wsp10", workspace --no-auto-back-and-forth "10:$wsp10"
+
+# Startup Steam in the correct place.
+exec i3-msg 'workspace 5:$wsp5; exec /usr/games/steam'
+# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
+for_window [class="Steam"] move to workspace "5:$wsp5", workspace --no-auto-back-and-forth "5:$wsp5"
+
 
 # Sound stuff
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
