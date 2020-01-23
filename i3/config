@@ -274,4 +274,4 @@ exec /home/dodge/bin/starbucks_wifi_connect
 
 # Set up Capslock to behave as both a control (when held) and an escape (when pressed)
 exec eval "setxkbmap -option ctrl:swapcaps"
-exec eval "xcape -e 'Control_L=Escape'"
+exec /usr/bin/xcape -e 'Control_L=Escape'; exec /usr/bin/xcape
