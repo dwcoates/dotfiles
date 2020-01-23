@@ -262,6 +262,13 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Connect to my Bose headphones. Use (apt get install bluez-tools)
+#
+# bt-device -l
+#
+# To get a list of bluetooth device MAC addresses.
+exec bt-device -c 2C:41:A1:4A:2D:CC
+
 # Connect to starbucks if possible
 exec /home/dodge/bin/starbucks_wifi_connect
 
