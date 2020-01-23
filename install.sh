@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+# Tested on Pop!_OS 19.10
+
 config_path="$HOME/.config"
-declare -a dependencies=(xcape feh i3blocks dunst shutter slop glances)
+declare -a dependencies=(xcape feh i3blocks dunst compton slop glances)
 declare -a configs=(i3 dunst conky compton)
 remove_dirs=()
 
