@@ -143,7 +143,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+u mode "resize"
+bindsym $mod+z mode "resize"
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
