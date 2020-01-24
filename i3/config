@@ -243,12 +243,12 @@ exec i3-msg 'workspace 6:$wsp6; exec spotify'
 for_window [class="Spotify"] move to workspace "6:$wsp6", workspace --no-auto-back-and-forth "6:$wsp6"
 
 # Startup Slack in the correct place.
-exec i3-msg 'workspace 10:$wsp10; exec /usr/bin/slack'
+exec i3-msg 'workspace 10:$wsp10; exec slack'
 # exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Slack"] move to workspace "10:$wsp10", workspace --no-auto-back-and-forth "10:$wsp10"
 
 # Startup Steam in the correct place.
-exec i3-msg 'workspace 5:$wsp5; exec /usr/games/steam'
+exec i3-msg 'workspace 1:$wsp1; exec steam'
 # exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Steam"] move to workspace "5:$wsp5", workspace --no-auto-back-and-forth "5:$wsp5"
 
