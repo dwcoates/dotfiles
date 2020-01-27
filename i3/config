@@ -252,6 +252,11 @@ exec i3-msg 'workspace 1:$wsp1; exec steam'
 # exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Steam"] move to workspace "1:$wsp1", workspace --no-auto-back-and-forth "1:$wsp1"
 
+# Startup YakYak in the correct place.
+exec i3-msg 'workspace 1:$wsp1; exec yakyak'
+# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
+for_window [class="YakYak"] move to workspace "2:$wsp2", workspace --no-auto-back-and-forth "2:$wsp2"
+
 
 # Sound stuff
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
