@@ -231,10 +231,10 @@ exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="sta
 exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal3" --working-directory $HOME/workspace/ChessCom/ceac';
 exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal4" --working-directory $HOME/workspace/ChessCom/ceac';
 
-exec --no-startup-id i3-msg 'workspace 3 $wsp5; append_layout /home/dodge/.config/i3/workspace-monitor.json'
-exec --no-startup-id i3-msg 'workspace 3 $wsp5; exec /home/dodge/bin/kitty --name="startup-monitor1" s-tui';
-# https://glances.readthedocs.io/en/stable/aoa/gpu.html
-exec --no-startup-id i3-msg 'workspace 3 $wsp5; exec /home/dodge/bin/kitty --name="startup-monitor2" glances';
+exec --no-startup-id i3-msg 'workspace 5 $wsp5; append_layout /home/dodge/.config/i3/workspace-system.json'
+exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-1" -e htop';
+exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-2" -e s-tui';
+exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec conky -c /home/dodge/.config/conky/conky.conf';
 
 
 # Startup Spotify in the correct place.

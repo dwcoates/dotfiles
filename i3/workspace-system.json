@@ -1,0 +1,71 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.7,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 6,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 938,
+               "width": 1522,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Terminal",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^sytem\\-monitor\\-1$",
+               "instance": "^gnome\\-terminal\\-server$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 6,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 938,
+               "width": 1522,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Terminal",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^system\\-monitor\\-2$",
+               "instance": "^gnome\\-terminal\\-server$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 6,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 12,
+       "width": 12,
+       "x": 0,
+       "y": 0
+    },
+    "name": "conky (goldbox)",
+    "percent": 0.3,
+    "swallows": [
+       {
+       "class": "^conky\\-semi$",
+       "instance": "^conky\\-semi$"
+       }
+    ],
+    "type": "con"
+}
+
