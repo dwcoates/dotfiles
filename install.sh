@@ -3,9 +3,27 @@
 # Tested on Pop!_OS 19.10
 
 config_path="$HOME/.config"
-declare -a dependencies=(xcape feh i3blocks dunst compton slop glances)
+declare -a dependencies=(xcape     # capslock behavior
+                         feh       # setting background image
+                         ffmpeg    # screenshotting
+                         slop      # screenshotting
+                         shutter   # screenshotting
+                         i3blocks  # status bar
+                         blueman   # statusbar bluetooth applet
+                         pasystray # statusbar volume applet
+                         dunst     # desktop notification
+                         compton   # window compositor
+                         s-tui     # system monitoring
+                         htop      # system monitoring
+                         conky-all # system monitoring
+                        )
 declare -a configs=(i3 dunst conky compton)
 remove_dirs=()
+
+[[ "$EUID" -eq 0 ]] && {
+    echo "Do not run script as sudo."
+    exit 1
+}
 
 for c in "${configs[@]}"; do
     if [ "$config_path/$c" ]; then
