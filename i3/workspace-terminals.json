@@ -1,92 +1,45 @@
 {
-    "border": "pixel",
-    "current_border_width": 3,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 410,
-       "width": 634,
-       "x": 0,
-       "y": 0
-    },
-    "name": "startup-terminals-term1",
-    "percent": 0.333333333333333,
-    "swallows": [
-       {
-       "class": "^Gnome\\-terminal$",
-       "instance": "^gnome\\-terminal\\-server$"
-       }
-    ],
-    "type": "con"
-}
-
-{
-    "border": "pixel",
-    "current_border_width": 3,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 410,
-       "width": 634,
-       "x": 0,
-       "y": 0
-    },
-    "name": "startup-terminals-term2",
-    "percent": 0.333333333333333,
-    "swallows": [
-       {
-       "class": "^Gnome\\-terminal$",
-       "instance": "^gnome\\-terminal\\-server$"
-       }
-    ],
-    "type": "con"
-}
-
-{
-    "border": "pixel",
-    "floating": "auto_off",
     "layout": "splitv",
-    "percent": 0.333333333333333,
+    "percent": 0.5,
+    "border": "pixel",
+    "floating": "auto_off",
     "type": "con",
     "nodes": [
         {
-            "border": "pixel",
-            "current_border_width": 3,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 410,
-               "width": 634,
-               "x": 0,
-               "y": 0
-            },
-            "name": "startup-terminals-term3",
-            "percent": 0.5,
             "swallows": [
-               {
-               "class": "^Gnome\\-terminal$",
-               "instance": "^gnome\\-terminal\\-server$"
-               }
+                {
+                    "class": "^startup\\-terminal\\-1$",
+                    "instance": "^gnome\\-terminal\\-server$"
+                }
             ],
             "type": "con"
         },
         {
-            "border": "pixel",
-            "current_border_width": 3,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 410,
-               "width": 634,
-               "x": 0,
-               "y": 0
-            },
-            "name": "startup-terminals-term4",
+            "layout": "splith",
             "percent": 0.5,
-            "swallows": [
-               {
-               "class": "^Gnome\\-terminal$",
-               "instance": "^gnome\\-terminal\\-server$"
-               }
-            ],
-            "type": "con"
+            "type": "con",
+            "nodes": [
+                {
+                    "swallows": [
+                        {
+                            "class": "^startup\\-terminal\\-2$",
+                            "instance": "^gnome\\-terminal\\-server$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "swallows": [
+                        {
+                            "class": "^startup\\-terminal\\-3$",
+                            "instance": "^gnome\\-terminal\\-server$"
+                        }
+                    ],
+                    "type": "con"
+                }
+            ]
         }
+
+
     ]
 }
-

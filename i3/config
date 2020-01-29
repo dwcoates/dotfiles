@@ -280,10 +280,9 @@ exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec emacs --name startup-emacs'
 
 # Build emacs workspace
 exec --no-startup-id i3-msg 'workspace 9 $wsp9; append_layout /home/dodge/.config/i3/workspace-terminals.json'
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal1" --working-directory $HOME/workspace/ChessCom/ceac';
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal2" --working-directory $HOME/workspace/ChessCom/ceac';
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal3" --working-directory $HOME/workspace/ChessCom/ceac';
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --title="startup-terminal4" --working-directory $HOME/workspace/ChessCom/ceac';
+exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --class="startup-terminal-1" --working-directory $HOME/workspace/ChessCom/ceac';
+exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --class="startup-terminal-2"';
+exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --class="startup-terminal-3"';
 
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; append_layout /home/dodge/.config/i3/workspace-system.json'
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-1" -e htop';
