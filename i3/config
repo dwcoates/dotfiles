@@ -289,29 +289,26 @@ exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="sys
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-2" -e s-tui';
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec conky -c /home/dodge/.config/conky/conky.conf';
 
-
 # Startup Spotify in the correct place.
-exec i3-msg 'workspace 6:$wsp6; exec spotify'
-# exec --no-startup-id "i3-msg 'workspace 6:$wsp6; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
+exec i3-msg 'workspace 6:$wsp6; exec spotify --force-device-scale-factor=1.92'
 for_window [class="Spotify"] move to workspace "6:$wsp6", workspace --no-auto-back-and-forth "6:$wsp6"
 
 # Startup Slack in the correct place.
 exec i3-msg 'workspace 10:$wsp10; exec slack'
-# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Slack"] move to workspace "10:$wsp10", workspace --no-auto-back-and-forth "10:$wsp10"
 
 # Startup Steam in the correct place.
 exec i3-msg 'workspace 1:$wsp1; exec steam'
-# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="Steam"] move to workspace "1:$wsp1", workspace --no-auto-back-and-forth "1:$wsp1"
 
 # Startup YakYak in the correct place.
 exec i3-msg 'workspace 2:$wsp2; exec yakyak'
-# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
 for_window [class="yakyak"] move to workspace "2:$wsp2", workspace --no-auto-back-and-forth "2:$wsp2"
 
 # Startup Chrome in the correct place.
-exec i3-msg 'workspace 3:$wsp3; exec google-chrome-stable'
-# exec --no-startup-id "i3-msg 'workspace 10:$wsp10; append_layout /home/dodge/.config/i3/workspace-spotify.json'"
-for_window [class="google-chrome"] move to workspace "3:$wsp3", workspace --no-auto-back-and-forth "3:$wsp3"
-
+#
+# Need to enable the jsdebugger command for firefox, otherwise this will just open normal firefox:
+#
+# https://www.jetbrains.com/help/webstorm/debugging-javascript-in-firefox.html#
+exec i3-msg 'workspace 3:$wsp3; exec firefox --jsdebugger'
+for_window [class="Devtools"] move to workspace "3:$wsp3", workspace --no-auto-back-and-forth "3:$wsp3"
