@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 # Tested on Pop!_OS 19.10
+#
+# The entry point for all configs is i3/config. I.e., to turn anything off (dunst, conky, compton,
+# etc), comment out the relevant lins(s) in ./i3/config
 
 config_path="$HOME/.config"
 declare -a dependencies=(xcape     # capslock behavior

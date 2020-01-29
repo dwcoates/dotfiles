@@ -171,7 +171,12 @@ bar {
 
 # A network manager applet for the status bar.
 exec --no-startup-id nm-applet
+
+# A bluetooth manager applet for the status bar.
 exec --no-startup-id blueman-applet
+
+# A sound manager applet for the status bar.
+exec --no-startup-id pasystray
 
 #########
 ## GUI ##
