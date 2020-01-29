@@ -171,6 +171,7 @@ bar {
 
 # A network manager applet for the status bar.
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 
 #########
 ## GUI ##
