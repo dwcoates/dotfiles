@@ -261,8 +261,8 @@ exec /home/dodge/bin/starbucks_wifi_connect
 
 set $wsp1 steam
 set $wsp2 gchat
-set $wsp3 chrome
-set $wsp4 4:misc
+set $wsp3 js-debugger
+set $wsp4 scratch
 set $wsp5 system
 set $wsp6 spotify
 set $wsp7 firefox
@@ -287,22 +287,22 @@ exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --class="sta
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; append_layout /home/dodge/.config/i3/workspace-system.json'
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-1" -e htop';
 exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec gnome-terminal --class="system-monitor-2" -e s-tui';
-exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec conky -c /home/dodge/.config/conky/conky.conf';
+exec --no-startup-id i3-msg 'workspace 5 $wsp5; exec conky';
 
 # Startup Spotify in the correct place.
 exec i3-msg 'workspace 6:$wsp6; exec spotify --force-device-scale-factor=1.92'
 for_window [class="Spotify"] move to workspace "6:$wsp6", workspace --no-auto-back-and-forth "6:$wsp6"
 
 # Startup Slack in the correct place.
-exec i3-msg 'workspace 10:$wsp10; exec slack'
+exec --no-startup-id i3-msg 'workspace 10:$wsp10; exec slack'
 for_window [class="Slack"] move to workspace "10:$wsp10", workspace --no-auto-back-and-forth "10:$wsp10"
 
 # Startup Steam in the correct place.
-exec i3-msg 'workspace 1:$wsp1; exec steam'
+exec --no-startup-id i3-msg 'workspace 1:$wsp1; exec steam'
 for_window [class="Steam"] move to workspace "1:$wsp1", workspace --no-auto-back-and-forth "1:$wsp1"
 
 # Startup YakYak in the correct place.
-exec i3-msg 'workspace 2:$wsp2; exec yakyak'
+exec --no-startup-id i3-msg 'workspace 2:$wsp2; exec yakyak'
 for_window [class="yakyak"] move to workspace "2:$wsp2", workspace --no-auto-back-and-forth "2:$wsp2"
 
 # Startup Chrome in the correct place.
