@@ -26,7 +26,9 @@ bindsym $mod+Home exec $HOME/.config/i3/scripts/screencast.sh
 bindsym $mod+Shift+Home exec killall ffmpeg
 
 # Take a screenshot
-bindsym $mod+b exec $HOME/.config/i3/scripts/screenshot.sh
+#
+# In github.com/dwcoates/scripts
+bindsym Print exec $HOME/bin/screenshot
 
 # change focus
 bindsym $mod+h focus left
