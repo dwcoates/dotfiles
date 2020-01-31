@@ -36,12 +36,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -59,7 +53,7 @@ bindsym $mod+period split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+i exec emacsclient -e '(dwc-smart-transparent-frame)'; fullscreen toggle
+bindsym $mod+i fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -206,8 +200,8 @@ exec --no-startup-id feh --randomize --bg-fill /home/dodge/.config/i3/night-sky.
 exec --no-startup-id compton --config $HOME/.config/compton/compton.conf -b
 
 # Kill notification daemon and use dunst
-exec killall -q /usr/lib/cups/notifier/dbus
-exec --no-startup-id dunst -config $HOME/.config/dunst/dunst.config
+exec_always killall -q /usr/lib/cups/notifier/dbus
+exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunst.config
 
 ##############
 ## Keyboard ##
@@ -276,8 +270,8 @@ set $wsp10 slack
 exec --no-startup-id i3-msg 'workspace 7:firefox; exec /usr/bin/firefox'
 
 # Build emacs workspace
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; append_layout /home/dodge/.config/i3/workspace-emacs.json'
-exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --working-directory $HOME/workspace/ChessCom/ceac';
+# exec --no-startup-id i3-msg 'workspace 8 $wsp8; append_layout /home/dodge/.config/i3/workspace-emacs.json'
+# exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec gnome-terminal --working-directory $HOME/workspace/ChessCom/ceac';
 exec --no-startup-id i3-msg 'workspace 8 $wsp8; exec emacs --name startup-emacs';
 
 # Build emacs workspace
