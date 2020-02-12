@@ -241,6 +241,8 @@ bindsym XF86AudioPrev exec playerctl previous
 #
 # To get a list of bluetooth device MAC addresses.
 exec bt-device -c 2C:41:A1:4A:2D:CC
+bindsym XF86MonBrightnessUp   exec $HOME/bin/backlight_brightness_inc 0.025
+bindsym XF86MonBrightnessDown exec $HOME/bin/backlight_brightness_inc -0.25
 
 ##########
 ## WiFi ##
