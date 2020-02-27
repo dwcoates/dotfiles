@@ -22,8 +22,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+BackSpace kill
 
 # Screencast
-bindsym $mod+Home exec $HOME/.config/i3/scripts/screencast.sh
-bindsym $mod+Shift+Home exec killall ffmpeg
+#
+# In github.com/dwcoates/scripts
+bindsym Shift+Print exec $HOME/bin/screencast # Start
+bindsym $mod+Shift+Print exec killall ffmpeg  # End
 
 # Take a screenshot
 #
@@ -35,6 +37,9 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -184,7 +189,7 @@ client.unfocused        #000000 #222222 #000000 #000000
 client.urgent           #000000 #900000 #000000 #000000
 client.placeholder      #000000 #0c0c0c #000000 #000000
 
-exec xrandr --output eDP-1 --brightness 0.5
+exec_always xrandr --output eDP-1 --brightness 0.6
 
 # The window border width
 new_window pixel 4
@@ -218,6 +223,13 @@ exec /usr/bin/xcape -e 'Control_L=Escape'; exec /usr/bin/xcape # not sure why th
 ## Sound ##
 ###########
 
+# Connect to my Bose headphones. Use (apt get install bluez-tools)
+#
+# bt-device -l
+#
+# To get a list of bluetooth device MAC addresses.
+exec bt-device -c 2C:41:A1:4A:2D:CC
+
 # Eh, I don't really understand the PulseAudio system. In any case, the audio sinks can be found by
 #
 # pactl list short sinks
@@ -227,22 +239,16 @@ exec /usr/bin/xcape -e 'Control_L=Escape'; exec /usr/bin/xcape # not sure why th
 # pactl list short sinks | sed -nr s/\([0-9]+\).*RUNNING.*/\1/p
 #
 # makes more sense for determining running sink.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/change_volume.sh 3
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/scripts/change_volumn.sh -3
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Connect to my Bose headphones. Use (apt get install bluez-tools)
-#
-# bt-device -l
-#
-# To get a list of bluetooth device MAC addresses.
-exec bt-device -c 2C:41:A1:4A:2D:CC
-bindsym XF86MonBrightnessUp   exec $HOME/bin/backlight_brightness_inc 0.025
-bindsym XF86MonBrightnessDown exec $HOME/bin/backlight_brightness_inc -0.25
+bindsym XF86MonBrightnessUp   exec $HOME/bin/backlight_brightness_inc 0.01
+bindsym XF86MonBrightnessDown exec $HOME/bin/backlight_brightness_inc -0.01
 
 ##########
 ## WiFi ##
@@ -308,5 +314,5 @@ for_window [class="yakyak"] move to workspace "2:$wsp2", workspace --no-auto-bac
 # Need to enable the jsdebugger command for firefox, otherwise this will just open normal firefox:
 #
 # https://www.jetbrains.com/help/webstorm/debugging-javascript-in-firefox.html#
-exec i3-msg 'workspace 3:$wsp3; exec firefox --jsdebugger'
-for_window [class="Devtools"] move to workspace "3:$wsp3", workspace --no-auto-back-and-forth "3:$wsp3"
+# exec i3-msg 'workspace 3:$wsp3; exec firefox --jsdebugger'
+# for_window [class="Devtools"] move to workspace "3:$wsp3", workspace --no-auto-back-and-forth "3:$wsp3"

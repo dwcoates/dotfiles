@@ -19,6 +19,7 @@ declare -a dependencies=(xcape     # capslock behavior
                          s-tui     # system monitoring
                          htop      # system monitoring
                          conky-all # system monitoring
+                         playerctl # spotify next/prev song
                         )
 declare -a configs=(i3 dunst conky compton)
 remove_dirs=()
@@ -62,4 +63,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
         else echo "'$d' already found... Skipping.";
         fi
     done
+fi
+
+DELIM="##########DWC BASH CONFIG##############"
+BASH_CONFIG=$(cat $(readlink -f $(dirname "$0"))/bash_config.sh)
+BASH_HASH=$(echo $BASH_CONFIG | md5sum)
+
+if ! grep -q $BASH_HASH $HOME/.bashrc ; then
+    sed -i "/$DELIM/,/$DELIM:/d" $HOME/.bashrc
 fi
